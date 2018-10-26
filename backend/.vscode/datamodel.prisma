@@ -1,0 +1,10 @@
+type User {
+  id: ID! @unique
+  name: String!
+  email: String!
+}
+type item {
+  id: ID! @unique
+  title: String!
+
+}
