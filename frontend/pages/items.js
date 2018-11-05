@@ -1,5 +1,3 @@
-import Link from 'next/link'
+import Items from './index';
 
-import Home from './index';
-
-export default Home
+export default Items

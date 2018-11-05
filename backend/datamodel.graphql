@@ -1,8 +1,21 @@
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
+}
 type User {
   id: ID! @unique
   name: String!
-  email: String!
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission]
 }
+
 type Item {
   id: ID! @unique
   title: String!
@@ -10,8 +23,5 @@ type Item {
   image: String
   largeImage: String
   price: Int!
-  # createAt: DateTime!
-  # updatedAt: DateTime!
-  # user: User!
+  user: User!
 }
- 

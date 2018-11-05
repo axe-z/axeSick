@@ -1,9 +1,10 @@
 import Items from '../components/Items.js'
+
 const Home = (props) => {
+  // console.log(props.query.page)
  return (
     <div>
-      {/*home*/}
-      <Items />
+      <Items page={parseFloat(props.query.page) || 1}/>
     </div>
   )
 };

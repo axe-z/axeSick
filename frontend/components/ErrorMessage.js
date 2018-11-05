@@ -24,7 +24,7 @@ const DisplayError = ({ error }) => {
     return error.networkError.result.errors.map((error, i) => (
       <ErrorStyles key={i}>
         <p data-test="graphql-error">
-          <strong>Shoot!</strong>
+          <strong>Zut!</strong>
           {error.message.replace('GraphQL error: ', '')}
         </p>
       </ErrorStyles>
@@ -33,8 +33,11 @@ const DisplayError = ({ error }) => {
   return (
     <ErrorStyles>
       <p data-test="graphql-error">
-        <strong>Shoot!</strong>
-        {error.message.replace('GraphQL error: ', '')}
+        <strong>Zut!</strong>
+        {/*{ if(error.message.includes(" Il n'existe aucun utilisateur ")){ console.log('utilisateur')  }}*/}
+
+         {error.message.replace('GraphQL error: ', 'oups!')}
+         {/*Ces infos existent déjà dans notre base de données!*/}
       </p>
     </ErrorStyles>
   );

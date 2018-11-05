@@ -3,10 +3,12 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Item from './Item.js';
+import Pagination from './Pagination.js'
+import { perPage } from '../config';
 
-const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY {
-    items {
+export const ALL_ITEMS_QUERY = gql`
+  query ALL_ITEMS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+    items(first: $first, skip: $skip, orderBy: createdAt_DESC) {
       id
       title
       description
@@ -33,27 +35,28 @@ class Items extends Component {
   render() {
     return (
       <Center>
-        <Query
-          query={ALL_ITEMS_QUERY} >
-          {
-            ({ data: { items }, loading, error, refetch, networkStatus }) => {
-              if (loading) return 'Loading';
+        <Pagination page={this.props.page}/>
+          <Query query={ALL_ITEMS_QUERY}
+            // fetchPolicy="network-only"
+             variables={{
+              skip: this.props.page * perPage - perPage,
+              first: 4
+            }}>
+            {({ data: { items }, loading, error, refetch, networkStatus }) => {
+              if (loading) return "Loading";
               if (error) return `Error!: ${error}`;
               return (
                 <ItemsList>
-
-                  {items.map(item => (
-                  <Item item={item} key={item.id}/>
-                  ))}
-
+                  {items.map(item => <Item item={item} key={item.id} />)}
                 </ItemsList>
-              )
-            }
-          }
-        </Query>
+              );
+            }}
+          </Query>
+        <Pagination page={this.props.page}/>
       </Center>
     );
   }
 }
+
 
 export default Items;

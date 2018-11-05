@@ -71,7 +71,7 @@ const Header = props => {
       <div className="bar">
         <Logo>
           <Link href="/">
-            <a>Ca Fit</a>
+            <a>AXE-Z !</a>
           </Link>
         </Logo>
         <Nav />
