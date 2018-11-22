@@ -59,8 +59,8 @@ class UpdateItem extends Component {
 handleUpdateItem = async (e, updateItem, refetch) => {
   e.preventDefault();
 
-  console.log(this.props.id);
-  console.log(this.state);
+  //console.log(this.props.id);
+  //console.log(this.state);
   const res = await updateItem({
     variables: {
       id: this.props.id,
@@ -69,7 +69,7 @@ handleUpdateItem = async (e, updateItem, refetch) => {
   });
   // console.log(res.data.updateItem);
   await refetch();
-  console.log("update fait", res);
+  //console.log("update fait", res);
 
   //redirect
   // Router.push({
@@ -115,7 +115,7 @@ uploadFile = async (e, refetch) => {
            //console.log(data.item)
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}
-              refetchQueries={ () => [
+              refetchQueries={[
                 {query: SINGLE_ITEM_QUERY, variables: { id: this.props.id }}   //si dans les favoris
               ]}>
               {(updateItem, {loading, error }) => (

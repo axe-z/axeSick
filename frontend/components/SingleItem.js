@@ -60,6 +60,7 @@ class SingleItem extends Component {
                   <h2>Ici Le {item.title}</h2>
                   <p>{item.description}</p>
                   <p>{formatMoney(item.price)}</p>
+                  
                 </div>
               </SingleItemStyles>
             )

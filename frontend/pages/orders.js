@@ -1,11 +1,11 @@
-import CreateItem from '../components/CreateItem.js';
+import OrderList from '../components/OrderList.js';
 import PleaseSignIn from '../components/PleaseSignIn.js';
 
-const Sell = (props) => {
+const OrdersPage  = (props) => {
  return (
     <div>
     <PleaseSignIn>
-      <CreateItem />
+      <OrderList />
     </PleaseSignIn>
     </div>
   )
@@ -13,4 +13,4 @@ const Sell = (props) => {
 
 
 
-export default Sell;
+export default OrdersPage  ;

@@ -1,29 +1,30 @@
-import Nav from "./Nav.js";
 import Link from "next/link";
 import styled from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Cart from './Cart.js'
+import Nav from "./Nav.js";
+import Search from './Search.js'
 
-
-
-// Router.onRouteChangeStart = () => {
-//    console.log('onRouteChangeStart trigger')
-// }
+Router.onRouteChangeStart = () => {
+//   console.log('onRouteChangeStart trigger')
+   NProgress.start()
+}
 Router.onRouteChangeComplete = () => {
-   console.log('onRouteChangeComplete trigger')
+  // console.log('onRouteChangeComplete trigger')
    NProgress.done()
 }
 Router.onRouteChangeError = () => {
-   console.log('onRouteChangeError trigger')
+  // console.log('onRouteChangeError trigger')
       NProgress.done()
 }
 
-const handleRouteChange = url => {
-  console.log('RouteChangeStart trigger: ', url)
-  NProgress.start()
-}
-
-Router.events.on('routeChangeStart', handleRouteChange)
+// const handleRouteChange = url => {
+//   //console.log('RouteChangeStart trigger: ', url)
+//   NProgress.start()
+// }
+//
+// Router.events.on('routeChangeStart', handleRouteChange)
 
 
 const Logo = styled.h1`
@@ -77,9 +78,9 @@ const Header = props => {
         <Nav />
       </div>
       <div className="sub-bar">
-        <p>Recherche</p>
+        <Search />
       </div>
-      <div>Cart</div>
+      <Cart />
     </StyledHeader>
   );
 };

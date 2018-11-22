@@ -27,7 +27,16 @@ server.express.use((req,res, next) => {
   next();
 });
 
-//a faire /// express middleware pour polpuler current user
+
+/// express middleware pour polpuler current user apres avoir eu le userId dans le middleware en haut
+server.express.use(async (req,res, next) => {
+   if(!req.userId) return next();
+   //parce qu on a acces a la db ... et '{id, permissions, email, name}' est comme..  info dans les resolver
+     const user = await db.query.user({where: { id: req.userId }}, '{id, permissions, email, name}' )
+  // console.log(user) //sort un obj avec le data
+     req.user = user; /// on le met sur request.
+  next();
+});
 
 server.start(
   {
@@ -38,3 +47,4 @@ server.start(
   },
   (deets) => console.log( `Server is running on ${deets.port}`)
 );
+ 

@@ -6,7 +6,7 @@ import formatMoney from "./../lib/formatMoney.js";
 import Router from "next/router";
 import gql from "graphql-tag";
 import styled from "styled-components";
-
+//import { ALL_ITEMS_QUERY } from './Items';
 
 
 export const CREATE_ITEM_MUTATION = gql`
@@ -31,11 +31,11 @@ export const CREATE_ITEM_MUTATION = gql`
 
 class CreateItem extends Component {
   state = {
-    title: "Cool bike",
-    description: "On adore ces bike",
+    title: "",
+    description: "",
     image: "",
     largeImage: "",
-    price: 20000
+    price: 1000
   };
 
   handleChange = e => {
@@ -69,8 +69,9 @@ class CreateItem extends Component {
     const { title, price, description, image } = this.state;
      // console.log(this.props)
     return (
-      <Mutation mutation={CREATE_ITEM_MUTATION} 
+      <Mutation mutation={CREATE_ITEM_MUTATION}
         variables={this.state}
+
         >
         {(createItem, { data, loading, called, error }) => (
           <Form
@@ -122,6 +123,7 @@ class CreateItem extends Component {
                   id="price"
                   name="price"
                   placeholder="Prix"
+                  step=".01"
                   required
                   value={price}
                   onChange={this.handleChange}

@@ -50,7 +50,8 @@
     "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
     "testPathIgnorePatterns": [
       "<rootDir>/.next/",
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/1-Notes/"
     ],
     "transform": {
       "\\.(gql|graphql)$": "jest-transform-graphql",

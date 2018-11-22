@@ -37,14 +37,14 @@ class DeleteItem extends Component {
 
         {(deleteItem, { data, loading, called, error }) => {
           if (loading) return "Loading";
-          if (error) return 'error' ;
           return (
 
               <button
-                onClick={e => {
-                  e.preventDefault();
-                  if(confirm(" Vous etes sur de voiloir supprimer l'item ?")) {
-                     deleteItem();
+                onClick={() => {
+                  if(confirm(" Vous etes sur de voiloir supprimer l\'item ?")) {
+                     deleteItem().catch(err => {
+                       alert(err.message)
+                     });
                   }
                 }}
               >

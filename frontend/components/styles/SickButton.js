@@ -13,6 +13,7 @@ const SickButton = styled.button`
   display: inline-block;
   transition: all 0.5s;
   &[disabled] {
+    background: rgb(255, 255, 255);
     opacity: 0.5;
   }
 `;

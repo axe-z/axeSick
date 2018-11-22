@@ -6,7 +6,7 @@ import ItemStyles from "./styles/ItemStyles";
 import PriceTag from "./styles/PriceTag";
 import formatMoney from './../lib/formatMoney.js'
 import DeleteItem from './DeleteItem.js';
-
+import AddToCart from './AddToCart.js'
 
 class Item extends Component {
   static propTypes = {
@@ -31,7 +31,7 @@ class Item extends Component {
           query: {id: item.id}
           }}><a>Modifier</a>
         </Link>
-        <button>Ajout au panier</button>
+        <AddToCart id={item.id}/>
         <DeleteItem id={item.id}>Supprimer Item</DeleteItem>
       </div>
     </ItemStyles>
