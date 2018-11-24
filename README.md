@@ -1,4 +1,1 @@
-# sick2
-# sick2
-# axeSick
-# axeSick
+# App Apollo prisma GraphQl react yoga(express)
