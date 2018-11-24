@@ -3,7 +3,7 @@ import toJSON from 'enzyme-to-json';
 import wait from 'waait';
 import SingleItem, { SINGLE_ITEM_QUERY } from '../components/SingleItem';
 import { MockedProvider } from 'react-apollo/test-utils';
-import { fakeItem } from '../lib/testUtils';
+import { fakeItem, LocalStorageMock } from '../lib/testUtils';
 
 describe('<SingleItem/>', () => {
   it('renders with proper data', async () => {
@@ -26,13 +26,13 @@ describe('<SingleItem/>', () => {
         <SingleItem id="123" />
       </MockedProvider>
     );
-    expect(wrapper.text()).toContain("Loading");
-    await wait();
-    wrapper.update();
-    // console.log(wrapper.debug());
-    expect(toJSON(wrapper.find('h2'))).toMatchSnapshot();
-    expect(toJSON(wrapper.find('img'))).toMatchSnapshot();
-    expect(toJSON(wrapper.find('p'))).toMatchSnapshot();
+        expect(wrapper.text()).toContain("Loading");
+        await wait();
+        wrapper.update();
+        // console.log(wrapper.debug());
+        expect(toJSON(wrapper.find('h2'))).toMatchSnapshot();
+        expect(toJSON(wrapper.find('img'))).toMatchSnapshot();
+        expect(toJSON(wrapper.find('p'))).toMatchSnapshot();
   });
 
   it('Errors with a not found item', async () => {
@@ -57,3 +57,5 @@ describe('<SingleItem/>', () => {
     expect(toJSON(item)).toMatchSnapshot();
   });
 });
+
+
