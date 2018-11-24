@@ -25,7 +25,7 @@ export const CREATE_ITEM_MUTATION = gql`
       largeImage: $largeImage
     ) {
       id
-    }
+    } 
   }
 `;
 
