@@ -13,7 +13,7 @@ export const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
     $title: String!
     $description: String!
-    $price: Int!
+    $price: Int! 
     $image: String
     $largeImage: String
   ) {
